@@ -1,1 +1,7 @@
 <h1>All the Freebies!</h1>
+
+<ul>
+  <% @freebies.each do |freebie| %>
+    <%= freebie.name %>
+  <% end %>
+</ul>

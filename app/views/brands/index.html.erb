@@ -1,1 +1,7 @@
 <h1>All the brands!</h1>
+
+<ul>
+  <% @brands.each do |brand| %>
+    <%= brand.name %>
+  <% end %>
+</ul>

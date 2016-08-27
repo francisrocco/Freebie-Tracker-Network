@@ -5,3 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+alex = User.create(name: "Alex", password: "password")
+francis = User.create(name: "Francis", password: "password")
+ian = User.create(name: "Ian", password: "password")
+sophie = User.create(name: "Sophie", password: "password")
+jj = User.create(name: "JJ", password: "password")
+
+chanel = Brand.create(name: "Chanel", prestige: 10, location: "New York, NY")
+topshop = Brand.create(name: "TopShop", prestige: 8, location: "London, UK")
+uniqlo = Brand.create(name: "Uniqlo", prestige: 8, location: "Tokyo, Japan")
+hershey = Brand.create(name: "Hershey", prestige: 7, location: "Hershey, PA")
+tictac = Brand.create(name: "TicTac", prestige: 5, location: "probably Florida")
+
+keychain = Freebie.create(name: "Keychain", market_value: 30, brand_id: chanel.id)
+tote_bag = Freebie.create(name: "Tote Bag", market_value: 20, brand_id: topshop.id)
+socks = Freebie.create(name: "Socks", market_value: 12, brand_id: uniqlo.id)
+wallet = Freebie.create(name: "Wallet", market_value: 75, brand_id: chanel.id)
+kiss = Freebie.create(name: "Bag o' Hershey Kisses", market_value: 4, brand_id: hershey.id)
+tic_tac_pac = Freebie.create(name: "Tic Tac Pac", market_value: 2, brand_id: tictac.id)
+hand_bag = Freebie.create(name: "Chanel Bag", market_value: 150, brand_id: chanel.id)
+mug = Freebie.create(name: "Mug", market_value: 8, brand_id: hershey.id) 

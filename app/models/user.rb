@@ -3,6 +3,10 @@ class User < ApplicationRecord
   has_many :freebies, through: :user_freebies
   has_many :brands, through: :freebies
 
+  has_secure_password
+
+  validates :password, presence: true, on: :create
+
   def status_level
     return "Total Freebie Pro" if total_market_value > 500
     return "Freebie Novice" if total_market_value > 250
