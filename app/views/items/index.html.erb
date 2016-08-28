@@ -1,0 +1,7 @@
+<h1>All the Freebies!</h1>
+
+<ul>
+  <% @items.each do |item| %>
+    <%= link_to item.name, item_path(item) %> <br>
+  <% end %>
+</ul>

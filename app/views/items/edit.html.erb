@@ -1,0 +1,17 @@
+<h1>Edit your freebie!</h1>
+
+<p><%if current_user.admin%>
+  <%= form_for(@item) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %> <br>
+    <%= f.label :market_value %>
+    <%= f.text_field :market_value %> <br>
+    <%= f.collection_select :brand_id, Brand.all, :id, :name %> <br>
+    <%= f.submit "Edit your freebie!"%>
+  <% end %>
+<p><%= link_to 'Delete this freebie :(', item_path(@item), :method => :delete%></p>
+<%else%>
+
+    <p>You must be a brand ambassador to edit a freebie!</p>
+
+<%end%></p>

@@ -1,1 +1,16 @@
 <h1>Sign up!</h1>
+
+
+<%= form_for(@user) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+<p>Password</p>
+  <%= f.password_field :password_digest %>
+  <br>
+  <p> Check here if you are associated with a business and you are logging freebies on our website. </p>
+  <%=f.check_box :admin%>
+  <br>
+
+  <%= f.submit "Create your account!"%>
+<% end %>

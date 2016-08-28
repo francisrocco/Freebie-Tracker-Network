@@ -1,0 +1,12 @@
+<h1>Welcome! Sign in!</h1>
+  <%= form_tag '/signin' do %>
+  <%= label_tag :name %>
+  <input name="user[name]" id="user_name">
+  <%= label_tag :password %>
+  <input type="password" name="user[password]" id="user_password">
+  <%= submit_tag 'Sign In' %>
+<%end%>
+
+<br>
+<br>
+<p>Or create an account: <%=link_to "Sign up", new_user_path %> </p>

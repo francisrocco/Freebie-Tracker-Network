@@ -20,22 +20,22 @@ ActiveRecord::Schema.define(version: 20160826201441) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "freebies", force: :cascade do |t|
+  create_table "items", force: :cascade do |t|
     t.string   "name"
     t.integer  "market_value"
     t.integer  "brand_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["brand_id"], name: "index_freebies_on_brand_id"
+    t.index ["brand_id"], name: "index_items_on_brand_id"
   end
 
-  create_table "user_freebies", force: :cascade do |t|
+  create_table "user_items", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "freebie_id"
+    t.integer  "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["freebie_id"], name: "index_user_freebies_on_freebie_id"
-    t.index ["user_id"], name: "index_user_freebies_on_user_id"
+    t.index ["item_id"], name: "index_user_items_on_item_id"
+    t.index ["user_id"], name: "index_user_items_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
