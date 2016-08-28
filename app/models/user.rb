@@ -1,7 +1,8 @@
 class User < ApplicationRecord
-  has_many :user_freebies
-  has_many :freebies, through: :user_freebies
-  has_many :brands, through: :freebies
+  has_many :user_items
+  has_many :items, through: :user_items
+  has_many :brands, through: :items
+  validates_presence_of :name
 
   has_secure_password
 
@@ -15,8 +16,8 @@ class User < ApplicationRecord
 
   def total_market_value
     total = 0
-    self.freebies.each do |freebie|
-      total += freebie.market_value
+    self.items.each do |item|
+      total += item.market_value
     end
     total
   end

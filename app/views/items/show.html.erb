@@ -1,0 +1,11 @@
+<h1><%= @item.name %></h1>
+<br>
+<p><%= @item.brand.name %></p>
+<%#=binding.pry%>
+<h2> Number of people who have collected this item: <%=@item.users.count %></h2>
+<br>
+
+<%= form_tag user_path(User.find(session[:user_id])), method: :get do %>
+
+<%= button_tag "Add to my freebie collection.", name: "item_id", value: @item.id %>
+<%end%>

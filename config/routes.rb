@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   resources :users
-  resources :freebies
+  resources :items
   resources :brands, only: [:show, :index]
+
+root 'sessions#new'
+
+post '/signin', to: 'sessions#create'
+
+get '/signout', to: 'sessions#destroy'
+
+#get 'items/:id/delete', to: 'items#destroy', as: 'items_destroy' 
 end

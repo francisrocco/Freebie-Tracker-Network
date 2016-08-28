@@ -15,6 +15,15 @@ class UsersController < ApplicationController
   end
 
   def show
+    if session[:user_id]
+      if params[:item_id]
+        item = Item.find(params[:item_id])
+        @user.items << item
+      end
+    else
+      redirect_to root_path
+    end
+
   end
 
   def index

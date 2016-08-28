@@ -1,3 +1,11 @@
-<h1>One User!</h1>
+<h1>Your Profile!</h1>
 
-<%= @user.name %>
+<%= @user.name %> <br> <br>
+<% @user.items.each do |item| %>
+<%= item.name %> <br>
+<%end%>
+<h3>Your status:</h3>
+
+<%= @user.status_level %>
+
+<p><%= link_to 'Log Out', signout_path %></p>

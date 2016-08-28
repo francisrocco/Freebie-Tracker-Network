@@ -1,4 +1,4 @@
 class Brand < ApplicationRecord
-  has_many :freebies
-  has_many :users, through: :freebies
+  has_many :items
+  has_many :users, through: :items
 end

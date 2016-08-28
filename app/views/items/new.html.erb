@@ -1,0 +1,17 @@
+<h1>New Freebie!</h1>
+
+<p><%if current_user.admin%>
+  <%= form_for(@item) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %> <br>
+    <%= f.label :market_value %>
+    <%= f.text_field :market_value %> <br>
+    <%= f.collection_select :brand_id, Brand.all, :id, :name %> <br>
+    <%= f.submit "Add your freebie!"%>
+  <% end %>
+
+<%else%>
+
+    <p>You must be a brand ambassador to add a freebie!</p>
+
+<%end%></p>
