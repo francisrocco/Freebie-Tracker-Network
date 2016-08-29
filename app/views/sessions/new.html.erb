@@ -1,9 +1,10 @@
+
 <h1>Welcome! Sign in!</h1>
   <%= form_tag '/signin' do %>
   <%= label_tag :name %>
-  <input name="user[name]" id="user_name">
+  <input name="user[name]" id="user_name"><br>
   <%= label_tag :password %>
-  <input type="password" name="user[password]" id="user_password">
+  <input type="password" name="user[password]" id="user_password"><br>
   <%= submit_tag 'Sign In' %>
 <%end%>
 

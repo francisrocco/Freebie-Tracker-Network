@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    redirect_to user_path(User.find(session[:user_id])) if session[:user_id]
   end
 
   def create

@@ -6,7 +6,7 @@
     <%= f.text_field :name %> <br>
     <%= f.label :market_value %>
     <%= f.text_field :market_value %> <br>
-    <%= f.collection_select :brand_id, Brand.all, :id, :name %> <br>
+    <%= f.collection_select :brand_id, Brand.all, :id, :name %> <br><br>
     <%= f.submit "Add your freebie!"%>
   <% end %>
 
