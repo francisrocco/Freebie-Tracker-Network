@@ -1,5 +1,7 @@
 <h1><%= @item.name %></h1>
 <br>
+<%= link_to image_tag(@item.image.url(:med)), @item.image.url %>
+<br>
 <h2>Brought to You By: <%= @item.brand.name %></h2>
 <h3>Prestige Level: <%= @item.brand.prestige * @item.market_value %></h3>
 <p> Number of people who have collected this item: <%=@item.users.count %></p>

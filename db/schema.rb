@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160826201441) do
+ActiveRecord::Schema.define(version: 20160829143617) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "name"
@@ -24,8 +24,12 @@ ActiveRecord::Schema.define(version: 20160826201441) do
     t.string   "name"
     t.integer  "market_value"
     t.integer  "brand_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["brand_id"], name: "index_items_on_brand_id"
   end
 

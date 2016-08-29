@@ -5,16 +5,16 @@
 <%= button_to "Create a New Freebie", new_item_path, method: :get %>
 
 <% else %>
-<h1>Welcome Freebie Getter, <%= @user.name %>. <br>
-This is your profile!</h1>
+<h1>Welcome Freebie Getter, <%= @user.name %> <br>
+This is your profile, gurl!</h1>
 
 <% if @user.items.empty? %>
 You haven't collected any freebies yet :( <br>
 Get on out there! Get some freebies!
 <% else %>
 <h2>Here's a list of your freebies!</h2>
-<% @user.items.collect { |item| item.name }.uniq.each do |item| %>
-  😹 <%= item %><br>
+<% @user.items.uniq.each do |item| %>
+  😹 <%= link_to item.name, item_path(item) %><br>
 <% end %>
 <br>
 <h3>Your status:</h3>

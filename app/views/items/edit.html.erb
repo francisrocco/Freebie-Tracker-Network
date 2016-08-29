@@ -6,7 +6,9 @@
     <%= f.text_field :name %> <br>
     <%= f.label :market_value %>
     <%= f.text_field :market_value %> <br>
-    <%= f.collection_select :brand_id, Brand.all, :id, :name %> <br><br>
+    <%= f.collection_select :brand_id, Brand.all, :id, :name %><br>
+    <%= f.file_field :image %> <br><br>
+
     <%= f.submit "Edit your freebie!"%>
   <% end %><br>
 <p><%= link_to 'Delete this freebie :(', item_path(@item), :method => :delete%></p>
