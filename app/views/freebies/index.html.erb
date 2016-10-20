@@ -1,0 +1,7 @@
+<h1>All the Freebies!</h1>
+
+<ul>
+  <% @freebies.each do |freebie| %>
+    <%= link_to freebie.name, freeby_path(freebie) %> <br>
+  <% end %>
+</ul>
