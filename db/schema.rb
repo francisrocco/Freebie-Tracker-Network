@@ -10,26 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829143617) do
+ActiveRecord::Schema.define(version: 20161020200107) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "name"
     t.integer  "prestige"
     t.string   "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "business_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "brand_image_file_name"
+    t.string   "brand_image_content_type"
+    t.integer  "brand_image_file_size"
+    t.datetime "brand_image_updated_at"
   end
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.integer  "market_value"
     t.integer  "brand_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "item_image_file_name"
+    t.string   "item_image_content_type"
+    t.integer  "item_image_file_size"
+    t.datetime "item_image_updated_at"
     t.index ["brand_id"], name: "index_items_on_brand_id"
   end
 
@@ -44,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160829143617) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
+    t.string   "email"
     t.integer  "status",          default: 1
     t.boolean  "admin",           default: false
     t.string   "password_digest"
