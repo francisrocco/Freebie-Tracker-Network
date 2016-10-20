@@ -19,7 +19,7 @@ Get on out there! Get some freebies!
   <div class="row">
     <% @user.items.uniq.each do |item| %>
     <div class="col-sm-6">
-      <br><h3>😹 <%= link_to item.name, item_path(item) %></h3>
+      <br><h3> <%= link_to item.name, item_path(item) %></h3>
     </div>
     <div class="col-sm-6">
       <%= image_tag(item.image.url(:med)) %>
