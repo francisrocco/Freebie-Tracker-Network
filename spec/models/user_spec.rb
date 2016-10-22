@@ -1,4 +1,5 @@
 require "rails_helper"
+require 'byebug'
 
 RSpec.describe User, :type => :model do
 
@@ -19,14 +20,17 @@ RSpec.describe User, :type => :model do
     end
   end
 
-
-  # context 'relationships' do
-  #   it 'can have many items' do
-  #     alex = User.create(name: "Alex", email: "alxsanborn@gmail.com", password: "1234")
-  #     brand = Brand.create(name: "William-Sonoma", prestige: 4, location: "123 Mulberry Street", business_id: alex_id)
-  #     item_1 = Item.create(name: "cat mug", market_value: 20, brand_id: )
-  #   end
-  # end
-
-
+  context 'relationships' do
+    it 'a user can have many items' do
+      alex = User.create(name: "Alex", email: "alxsanborn@gmail.com", password: "1234")
+      brand = Brand.create(name: "William-Sonoma", prestige: 4, location: "123 Mulberry Street", business: alex)
+      item_1 = Item.create(name: "cat mug", market_value: 20, brand_id: brand.id)
+      item_2 = Item.create(name: "lotion", market_value: 20, brand_id: brand.id)
+      got_it_1 = UserItem.create(user_id: alex.id, item_id: item_1.id)
+      got_it_2 = UserItem.create(user_id: alex.id, item_id: item_2.id)
+      
+      expect(alex.items.first).to eq(item_1)
+      expect(alex.items.last).to eq(item_2)
+    end
+  end
 end

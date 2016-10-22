@@ -1,12 +1,10 @@
 class User < ApplicationRecord
   has_many :user_items
   has_many :items, through: :user_items
-  
+
   validates_presence_of :name, :password, :email
 
   has_secure_password
-
-  validates :password, presence: true, on: :create
 
   def status_level
     return "Total Freebie Pro" if total_market_value > 500
