@@ -2,8 +2,8 @@
 <h1>Welcome to Freebie Tracker! <br>
   Sign in!</h1>
   <%= form_tag '/signin' do %>
-  <%= label_tag :name %>
-  <input name="user[name]" id="user_name"><br>
+  <%= label_tag :email %>
+  <input name="user[email]" id="user_email"><br>
   <%= label_tag :password %>
   <input type="password" name="user[password]" id="user_password"><br>
   <%= submit_tag 'Sign In' %>

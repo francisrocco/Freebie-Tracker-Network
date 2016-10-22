@@ -1,16 +1,58 @@
-<h1>Sign up!</h1>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#userModal">
+  I am a user.
+</button>
 
+<!-- Modal -->
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">User Sign Up</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(@user) do |f| %>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+          <br>
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+          <br>
+          <%= f.label :password %>
+          <%= f.password_field :password_digest %>
 
-<%= form_for(@user) do |f| %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<%= form_for(@user, { remote: true, html: {class: 'user'}}) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <br>
-<p>Password</p>
-  <%= f.password_field :password_digest %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
   <br>
-  <p> Check here if you are associated with a business and you are logging freebies on our website. </p>
-  <%=f.check_box :admin%>
+  <%= f.label :password %>
+  <%= f.password_field :password_digest %>
   <br>
 
   <%= f.submit "Create your account!"%>
 <% end %>
+
+<%= form_for(@user, { remote: true, html: {class: 'business'}}) do |f| %>
+
+
+
+
+  <br>
+
+  <%= f.submit "Create your account!"%>
+<% end %> -->
