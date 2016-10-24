@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20161020200107) do
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.integer  "market_value"
+    t.string   "gimmick"
     t.integer  "brand_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
