@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :delete]
-  #posts
+
   def new
     @user = User.new
   end
@@ -9,11 +9,12 @@ class UsersController < ApplicationController
     @user = User.new(name: user_params[:name], password: user_params[:password], email: user_params[:email])
     if @user.save
       #binding.pry
-      if user_params[:brand_name] != nil && user_params[:brand_prestige] != nil && user_params[:brand_location] != nil
-          #binding.pry
-          @brand = Brand.create(name: user_params[:brand_name], prestige: user_params[:brand_prestige], location: user_params[:brand_location], business: @user)
-          #binding.pry
-      end
+        if user_params[:brand_name] != nil && user_params[:brand_prestige] != nil && user_params[:brand_location] != nil
+            #binding.pry
+            @brand = Brand.create(name: user_params[:brand_name], prestige: user_params[:brand_prestige], location: user_params[:brand_location], business: @user)
+            #binding.pry
+        end
+        session[:user_id] = @user.id
         redirect_to user_path(@user)
     else
       render :new
