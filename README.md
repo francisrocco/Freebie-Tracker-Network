@@ -7,7 +7,7 @@ Freebie Tracker Network is currently a work-in-progress. It began as as basic ra
 * ActiveRecord(sqlite3) database
 * Bootstrap.css front-end
 * Current gems: bcrypt, pry, paperclip, rspec-rails, bootstrap-sass, sass-rails, jquery-rails, sqlite3
-* RSpec testing: to run tests, type in 'rspec' in your command line.
+* Rspec testing: to run tests, type in 'rspec' in your command line.
 * To create the database, type in 'rake db:migrate' in your command line.
 * To seed the database, type in 'rake db:seed' in your command line.
 * Currently runs on localhost:3000
@@ -17,7 +17,8 @@ Freebie Tracker Network is currently a work-in-progress. It began as as basic ra
   * Created database schemas for users (regular and business), brands, items, and join tables (users and items)
   * Created models with Active Record relationships and methods
   * Created Sessions Controller: users can create accounts and sign in/out
-  * Created seed File
+  * Created seed file
+  * Created Rspec tests for models and session controller
 
 * Work to be done:
   * Edit view pages for users, items, businesses
