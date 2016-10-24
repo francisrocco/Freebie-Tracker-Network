@@ -21,6 +21,7 @@ Freebie Tracker Network is currently a work-in-progress. It began as as basic ra
 
 * Work to be done:
   * Edit view pages for users, items, businesses
+  * AJAXify pages where users can add and edit items
   * Create Active Record analytics for businesses and admins
   * Make front-end more aesthetically pleasing by implementing color scheme
   * Enable users to map out walking/driving route by integrating Google Maps API (requires new class for Location)
