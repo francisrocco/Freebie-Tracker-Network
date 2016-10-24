@@ -1,16 +1,86 @@
-<h1>Sign up!</h1>
+<!-- Button trigger modal -->
+<div class="col-md-12 text-center vert-align">
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#userModal">
+    I am a user.
+  </button>
+</div>
 
+<!-- Modal -->
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">User Sign Up</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(@user) do |f| %>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+          <br>
+          <br>
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+          <br>
+          <br>
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Button trigger modal -->
+<div class="col-md-12 text-center">
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#businessModal">
+    I am a business.
+  </button>
+</div
 
-<%= form_for(@user) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
-<p>Password</p>
-  <%= f.password_field :password_digest %>
-  <br>
-  <p> Check here if you are associated with a business and you are logging freebies on our website. </p>
-  <%=f.check_box :admin%>
-  <br>
+<!-- Modal -->
+<div class="modal fade" id="businessModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Business Sign Up</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(@user) do |f| %>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+          <br>
+          <br>
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+          <br>
+          <br>
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+          <br>
+          <br>
+          <%= f.label :brand_name %>
+          <%= f.text_field :brand_name %>
+          <br>
+          <br>
+          <%= f.label :brand_prestige %>
+          <%= f.text_field :brand_prestige %>
+          <br>
+          <br>
+          <%= f.label "Location" %>
+          <%= f.text_field :brand_location %>
 
-  <%= f.submit "Create your account!"%>
-<% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
