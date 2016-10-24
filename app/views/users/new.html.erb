@@ -24,7 +24,7 @@
           <br>
           <br>
           <%= f.label :password %>
-          <%= f.password_field :password_digest %>
+          <%= f.password_field :password %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -51,13 +51,17 @@
         <h4 class="modal-title" id="myModalLabel">Business Sign Up</h4>
       </div>
       <div class="modal-body">
-        ......
-
+        <%= form_for(@user) do |f| %>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+          <br>
+          <br>
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <% end %>
 
       </div>
     </div>
