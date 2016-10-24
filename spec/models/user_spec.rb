@@ -18,6 +18,9 @@ RSpec.describe User, :type => :model do
     end
 
     it 'a business user knows its brands' do
+      #binding.pry
+      expect(alex).to eq(alex)
+      expect(brand).to eq(brand) #why do I need to do this?
       expect(alex.brands.first).to eq(brand)
     end
 

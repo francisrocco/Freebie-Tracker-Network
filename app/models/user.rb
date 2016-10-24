@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  attr_reader :brand_name, :brand_prestige, :brand_location
   has_many :user_items
   has_many :items, through: :user_items
   has_many :brands, foreign_key: 'business_id'
@@ -6,6 +7,18 @@ class User < ApplicationRecord
   validates_presence_of :name, :password, :email
 
   has_secure_password
+
+  def brand_name=(brand_name)
+    @brand_name = brand_name
+  end
+
+  def brand_prestige=(brand_prestige)
+    @brand_prestige = brand_prestige
+  end
+
+  def brand_location=(brand_location)
+    @brand_location = brand_location
+  end
 
   def status_level
     return "Total Freebie Pro" if total_market_value > 500

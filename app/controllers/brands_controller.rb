@@ -5,7 +5,7 @@ class BrandsController < ApplicationController
   end
 
   def create
-    binding.pry
+    #binding.pry
     @brand = Brand.new(brand_params)
     if @brand.save
       redirect_to brand_path(@brand)

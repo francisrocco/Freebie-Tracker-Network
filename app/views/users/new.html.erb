@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<div class="col-md-4 text-center vert-align">
+<div class="col-md-12 text-center vert-align">
   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#userModal">
     I am a user.
   </button>
@@ -34,9 +34,8 @@
     </div>
   </div>
 </div>
-
 <!-- Button trigger modal -->
-<div class="col-md-4 text-center">
+<div class="col-md-12 text-center">
   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#businessModal">
     I am a business.
   </button>
@@ -56,6 +55,24 @@
           <%= f.text_field :name %>
           <br>
           <br>
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+          <br>
+          <br>
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+          <br>
+          <br>
+          <%= f.label :brand_name %>
+          <%= f.text_field :brand_name %>
+          <br>
+          <br>
+          <%= f.label :brand_prestige %>
+          <%= f.text_field :brand_prestige %>
+          <br>
+          <br>
+          <%= f.label :brand_location %>
+          <%= f.text_field :brand_location %>
 
       </div>
       <div class="modal-footer">
