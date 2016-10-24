@@ -1,5 +1,4 @@
 require "rails_helper"
-require 'byebug'
 
 RSpec.describe User, :type => :model do
   let(:alex) {User.create(name: "Alex", email: "alxsanborn@gmail.com", password: "1234")}
