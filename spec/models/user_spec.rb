@@ -12,6 +12,15 @@ RSpec.describe User, :type => :model do
       expect(alex).to be_valid
     end
 
+    it 'can be created without a brand' do
+      clay = User.create(name: "Clay", email: "clay@gmail.com", password: "1234")
+      expect(clay).to be_valid
+    end
+
+    it 'a business user knows its brands' do
+      expect(alex.brands.first).to eq(brand)
+    end
+
     it 'should be invalid without name, email, and password' do
         invalid_1 = User.new(email: "alxsanborn@gmail.com", password: "1234")
         invalid_2 = User.new(name: "Alex", password: "1234")

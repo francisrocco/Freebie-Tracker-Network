@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :user_items
   has_many :items, through: :user_items
-  has_many :brands, foreign_key: 'business_id' #, optional: true
+  has_many :brands, foreign_key: 'business_id'
 
   validates_presence_of :name, :password, :email
 
