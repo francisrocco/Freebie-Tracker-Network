@@ -1,19 +1,30 @@
-<h1><%= @item.name %></h1>
-<br>
-<%= link_to image_tag(@item.image.url(:med)), @item.image.url %>
-<br>
-<h2>Brought to You By: <%= @item.brand.name %></h2>
-<h3>Prestige Level: <%= @item.brand.prestige * @item.market_value %></h3>
-<p> Number of people who have collected this item: <%=@item.users.count %></p>
-<br>
+<div class="row">
 
+<div class="col s6 offset-s3">
+  <h2 class="header"><%= @item.name %></h2>
 
-<%= form_tag user_path(User.find(session[:user_id])), method: :get do %>
-
-<% if current_user.admin == true %>
-<%= link_to "Edit this freebie", edit_item_path(@item) %>
-<% else %>
-  <%= button_tag "Add to my freebie collection", name: "item_id", value: @item.id %>
-<% end %>
-
-<% end %>
+  <div class="card horizontal">
+    <div class="card-image">
+        <%= link_to image_tag(@item.item_image.url(:large)), @item.item_image.url %>
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+        <p>Brought to You By: <%= @item.brand.name %></p>
+        <p>Prestige Level: <%= @item.brand.prestige * @item.market_value %></p>
+        <p>Gimmick: <%= @item.gimmick%></p>
+        <p>Number of people who have collected this item <%=@item.users.count %></p>
+      </div>
+      <div class="card-action">
+        <%= form_tag user_path(User.find(session[:user_id])), method: :get do %>
+        <% if current_user.admin == true %>
+        <%= link_to "Edit this freebie", edit_item_path(@item) %>
+        <% elsif current_user.items.include?(@item) == false %>
+          <%= button_tag "Add to my freebie collection", name: "item_id", value: @item.id %>
+        <% else "You've already collected this freebie!" %>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -48,7 +48,6 @@ class UsersController < ApplicationController
   def delete
   end
 
-  private
 
   def set_user
     @user = User.find(params[:id])

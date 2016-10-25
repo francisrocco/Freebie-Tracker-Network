@@ -1,9 +1,14 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "materialize";
 
 
 
 .vert-align {
   line-height: 400px;
+  }
+
+.card-stacked {
+    padding-right: 25px;
   }
