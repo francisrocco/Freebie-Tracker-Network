@@ -23,7 +23,27 @@ Get on out there! Get some freebies!
   </tr>
 <% @user.items.each do |item| %>
   <tr>
-    <td> <%= link_to item.name, item_path(item) %> </td>
+    <td>
+      <a data-toggle="modal" data-target="#itemModal"> <%=item.name%></a>
+      <!-- Modal -->
+      <div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel"><%=item.name%></h4>
+            </div>
+            <div class="modal-body">
+              <p>Prestige Level: <%= item.brand.prestige * item.market_value %></p>
+              <p>Gimmick: <%= item.gimmick%></p>
+              <p>Number of people who have collected this item: <%=item.users.count %></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div></td>
     <td> <%= "$#{item.market_value}" %> </td>
     <td> <%= item.brand.name %> </td>
     <td> <%= image_tag(item.item_image.url(:small)) %> </td>
@@ -31,13 +51,11 @@ Get on out there! Get some freebies!
     <% end %>
 </table>
 
-
-
-
 <br>
-<h3>Your status:</h3>
-<%= @user.status_level %>
+<h3>Your status: <%= @user.status_level %> </h3>
 <% end %>
+
+
 <br><br>
 <% if session[:user_id] == params[:id].to_i %>
 <%= button_to "Get Some Freebies!", items_path, method: :get %>
