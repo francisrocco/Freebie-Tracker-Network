@@ -21,3 +21,9 @@ test:
   encoding: unicode
 
   pool: 5
+
+production:
+  adapter: postgresql
+  encoding: unicode
+
+  pool: 5
