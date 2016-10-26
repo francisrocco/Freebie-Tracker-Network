@@ -6,10 +6,12 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @user = User.find(session[:user_id])
+    @brand = @user.brands.first
   #  binding.pry
+    @item = Item.new(name: item_params[:name], market_value: item_params[:market_value], gimmick: item_params[:gimmick], item_image: item_params[:item_image], brand_id: @brand.id)
     if @item.save
-      redirect_to item_path(@item)
+      redirect_to brand_path(@brand)
     else
       render :new
     end
@@ -27,13 +29,18 @@ class ItemsController < ApplicationController
 
   def update
     @item.update(item_params)
-    redirect_to item_path(@item)
+    redirect_to brand_path(@brand)
   end
 
   def destroy
     #binding.pry
-    @item.destroy
-    redirect_to items_path
+    @user = User.find(session[:user_id])
+    @brand = @user.brands.first
+    Item.find(params[:id]).destroy
+
+
+      redirect_to brand_path(@brand)
+
   end
 
   private
@@ -43,7 +50,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :market_value, :gimmick, :brand_id, :item_image)
+    params.require(:item).permit(:name, :market_value, :gimmick, :item_image, :id)
   end
 
 end

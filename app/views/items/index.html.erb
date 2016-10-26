@@ -1,7 +1,33 @@
-<h1>All the Freebies!</h1>
+<h1 class="text-center">All the Freebies!</h1>
 
-<ul>
   <% @items.each do |item| %>
-    <%= link_to item.name, item_path(item) %> <br>
+  <div class="row">
+    <div class="col s8 offset-s1">
+      <h4 class="header"><%= item.name %></h4>
+
+      <div class="card horizontal">
+        <div class="card-image">
+            <%= link_to image_tag(item.item_image.url(:large)), item.item_image.url %>
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <p><strong>Brought to You By: </strong><%= item.brand.name %></p>
+            <p><strong>Prestige Level: </strong><%= item.brand.prestige * item.market_value %></p>
+            <p><strong>Gimmick: </strong><%= item.gimmick%></p>
+            <p><strong>Number of people who have collected this item: </strong><%=item.users.count %></p>
+          </div>
+          <div class="card-action">
+            <%= form_tag user_path(User.find(session[:user_id])), method: :get do %>
+            <% if current_user.admin == true %>
+            <%= link_to "Edit this freebie", edit_item_path(item) %>
+            <% elsif current_user.items.include?(item) == false %>
+              <%= button_tag "Add to my freebie collection", name: "item_id", value: item.id %>
+            <% else "You've already collected this freebie!" %>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
   <% end %>
-</ul>
