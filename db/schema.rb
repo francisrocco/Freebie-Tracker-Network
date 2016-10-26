@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20161020200107) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "brands", force: :cascade do |t|
     t.string   "name"
     t.integer  "prestige"
@@ -36,7 +39,6 @@ ActiveRecord::Schema.define(version: 20161020200107) do
     t.string   "item_image_content_type"
     t.integer  "item_image_file_size"
     t.datetime "item_image_updated_at"
-    t.index ["brand_id"], name: "index_items_on_brand_id"
   end
 
   create_table "user_items", force: :cascade do |t|
@@ -44,8 +46,8 @@ ActiveRecord::Schema.define(version: 20161020200107) do
     t.integer  "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_user_items_on_item_id"
-    t.index ["user_id"], name: "index_user_items_on_user_id"
+    t.index ["item_id"], name: "index_user_items_on_item_id", using: :btree
+    t.index ["user_id"], name: "index_user_items_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,4 +60,6 @@ ActiveRecord::Schema.define(version: 20161020200107) do
     t.datetime "updated_at",                      null: false
   end
 
+  add_foreign_key "user_items", "items"
+  add_foreign_key "user_items", "users"
 end
