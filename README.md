@@ -2,6 +2,11 @@
 
 Freebie Tracker Network is currently a work-in-progress. It began as as basic rails app partner project with @francisrocco during our Flatiron Web Development Immersive class. Now that the class is over, I've been building it out independently.
 
+Log-in credentials:
+ 
+ Business user email: me@chipotle.com, password: 1234; 
+ Regular user email: clay@gmail.com, password: 1234
+
 * Ruby version 2.2.2p95
 * Rails version 5.0
 * ActiveRecord(sqlite3) database
