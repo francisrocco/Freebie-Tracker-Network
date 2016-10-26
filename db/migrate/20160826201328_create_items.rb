@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.string :name
       t.integer :market_value
       t.string :gimmick
-      t.belongs_to :brand, foreign_key: true, optional: true
+      t.integer :brand_id
 
       t.timestamps
     end
