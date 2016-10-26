@@ -1,15 +1,25 @@
 class SessionsController < ApplicationController
 
   def new
-    redirect_to user_path(User.find(session[:user_id])) if session[:user_id]
+     if session[:user_id]
+       @user = User.find(session[:user_id])
+       if @user.brands.length > 0
+         redirect_to brand_path(@user.brands.first)
+       else redirect_to user_path(User.find(session[:user_id]))
+       end
+     end
   end
 
   def create
-    user = User.find_by(email: params[:email])
+    user = User.find_by(email: session_params[:email])
     #binding.pry
-      if user && user.authenticate(params[:password])
+      if user && user.authenticate(session_params[:password])
         session[:user_id] = user.id
-        redirect_to user_path(user)
+        #binding.pry
+        if user.brands.length > 0
+          redirect_to brand_path(user.brands.first)
+        else redirect_to user_path(user)
+        end
       else
         redirect_to '/', notice: 'Username or Password Not Correct'
       end
@@ -21,4 +31,9 @@ class SessionsController < ApplicationController
     redirect_to '/'
   end
 
+  private
+
+  def session_params
+    params.require(:user).permit(:email, :password)
+  end
 end

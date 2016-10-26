@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :users
   resources :items
-  resources :brands, only: [:show, :index]
+  resources :brands
+  resources :user_items
 
 root 'sessions#new'
 
@@ -9,5 +10,5 @@ post '/signin', to: 'sessions#create'
 
 get '/signout', to: 'sessions#destroy'
 
-#get 'items/:id/delete', to: 'items#destroy', as: 'items_destroy' 
+delete '/items/:id', to: 'items#destroy'
 end

@@ -1,12 +1,5 @@
-<% if @user.admin == true %>
-<h1>Brand Ambassador Homepage</h1>
-<br>
-<%= button_to "View All Freebies", items_path, method: :get %>
-<%= button_to "Create a New Freebie", new_item_path, method: :get %>
+<h1>Welcome Freebie Getter, <%= @user.name %>. <br>
 
-<% else %>
-<h1>Welcome Freebie Getter, <%= @user.name %> <br>
-This is your profile, gurl!</h1>
 
 <% if @user.items.empty? %>
 You haven't collected any freebies yet :( <br>
@@ -14,30 +7,58 @@ Get on out there! Get some freebies!
 <% else %>
 <h2>Here's a list of your freebies!</h2>
 
-
-<div class="container">
-  <div class="row">
-    <% @user.items.uniq.each do |item| %>
-    <div class="col-sm-6">
-      <br><h3> <%= link_to item.name, item_path(item) %></h3>
-    </div>
-    <div class="col-sm-6">
-      <%= image_tag(item.image.url(:med)) %>
-    </div>
+<table class="table table-striped">
+  <tr>
+    <th> Item name </th>
+    <th> Item value </th>
+    <th> Brand </th>
+    <th> Picture </th>
+    <th> </th>
+  </tr>
+<% @user.user_items.each do |user_item| %>
+  <tr>
+    <td>
+      <a data-toggle="modal" data-target="#itemModal"> <%=user_item.item.name%></a>
+      <!-- Modal -->
+      <div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel"><%=user_item.item.name%></h4>
+            </div>
+            <div class="modal-body">
+              <p>Prestige Level: <%= user_item.item.brand.prestige * user_item.item.market_value %></p>
+              <p>Gimmick: <%= user_item.item.gimmick%></p>
+              <p>Number of people who have collected this item: <%=user_item.item.users.count %></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div></td>
+    <td> <%= "$#{user_item.item.market_value}" %> </td>
+    <td> <%= user_item.item.brand.name %> </td>
+    <td> <%= image_tag(user_item.item.item_image.url(:small)) %> </td>
+    <td>
+      <%= form_tag user_item_path(user_item.id), method: "delete" %>
+      <%= submit_tag "X" %>
+    </td>
+  </tr>
     <% end %>
-  </div>
-</div>
-
-
+</table>
 
 <br>
-<h3>Your status:</h3>
-<%= @user.status_level %>
+<h3>Your status: <%= @user.status_level %> </h3>
 <% end %>
+
+
 <br><br>
-<% if session[:user_id] == params[:id].to_i %>
-<%= button_to "Get Some Freebies!", items_path, method: :get %>
-<% end %>
-<% end %>
+      <% if session[:user_id] == params[:id].to_i %>
+      <%= button_to "Get Some Freebies!", items_path, method: :get %>
+      <% end %>
+
 <br>
+
 <p><%= link_to 'Log Out', signout_path %></p>
