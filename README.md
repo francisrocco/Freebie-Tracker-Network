@@ -12,6 +12,8 @@ Freebie Tracker Network is currently a work-in-progress. It began as as basic ra
 * To seed the database, type in 'rake db:seed' in your command line.
 * Currently runs on localhost:3000
 
+* Current issue: Attempting to deploy to Heroku. It requires a Postgres database, but this app was originally created with SQLite3 because at the time, we hadn't anticipated this at all. Attempting to (correctly) migrate from SQLite3 to PostGres at the moment. 
+
 
 * Work completed so far:
   * Created database schemas for users (regular and business), brands, items, and join tables (users and items)
