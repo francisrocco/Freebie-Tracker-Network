@@ -13,11 +13,12 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: session_params[:email])
     #binding.pry
+    brand = user.brands.first
       if user && user.authenticate(session_params[:password])
         session[:user_id] = user.id
         #binding.pry
         if user.brands.length > 0
-          redirect_to brand_path(user.brands.first)
+          redirect_to brand_path(brand)
         else redirect_to user_path(user)
         end
       else
