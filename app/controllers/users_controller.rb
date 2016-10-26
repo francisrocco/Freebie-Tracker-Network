@@ -15,7 +15,10 @@ class UsersController < ApplicationController
             #binding.pry
         end
         session[:user_id] = @user.id
-        redirect_to user_path(@user)
+        if @user.brands.length > 0
+          redirect_to brand_path(@user.brands.first)
+        else redirect_to user_path(@user)
+        end
     else
       render :new
     end

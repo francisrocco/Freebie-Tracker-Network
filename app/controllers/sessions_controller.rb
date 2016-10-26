@@ -1,7 +1,13 @@
 class SessionsController < ApplicationController
 
   def new
-    redirect_to user_path(User.find(session[:user_id])) if session[:user_id]
+     if session[:user_id]
+       @user = User.find(session[:user_id])
+       if @user.brands.length > 0
+         redirect_to brand_path(@user.brands.first)
+       else redirect_to user_path(User.find(session[:user_id]))
+       end
+     end
   end
 
   def create
@@ -9,7 +15,11 @@ class SessionsController < ApplicationController
     #binding.pry
       if user && user.authenticate(session_params[:password])
         session[:user_id] = user.id
-        redirect_to user_path(user)
+        #binding.pry
+        if user.brands.length > 0
+          redirect_to brand_path(user.brands.first)
+        else redirect_to user_path(user)
+        end
       else
         redirect_to '/', notice: 'Username or Password Not Correct'
       end
