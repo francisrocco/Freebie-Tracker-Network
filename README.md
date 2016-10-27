@@ -15,8 +15,7 @@ Log-in credentials:
 * Rspec testing: to run tests, type in 'rspec' in your command line.
 * To create the database, type in 'rake db:migrate' in your command line.
 * To seed the database, type in 'rake db:seed' in your command line.
-* Currently runs on localhost:3000
-****Or access the deployed app: https://freebie-tracker-network-1.herokuapp.com/
+* Currently runs on localhost:3000 OR access the deployed app: https://freebie-tracker-network-1.herokuapp.com/
 
 * Currently: Integrating data visualization with Chart.js
 
