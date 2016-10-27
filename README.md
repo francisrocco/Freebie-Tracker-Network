@@ -16,8 +16,9 @@ Log-in credentials:
 * To create the database, type in 'rake db:migrate' in your command line.
 * To seed the database, type in 'rake db:seed' in your command line.
 * Currently runs on localhost:3000
+****Or access the deployed app: https://freebie-tracker-network-1.herokuapp.com/
 
-* Current issue: Attempting to deploy to Heroku. It requires a Postgres database, but this app was originally created with SQLite3 because at the time, we hadn't anticipated this at all. Attempting to (correctly) migrate from SQLite3 to PostGres at the moment. 
+* Currently: Integrating data visualization with Chart.js
 
 
 * Work completed so far:
@@ -27,10 +28,10 @@ Log-in credentials:
   * Created seed file
   * Created Rspec tests for models and session controller
   * Edit view pages for users, items, businesses with Bootstrap and Materialize
+  * Deployed to Heroku
 
 * Work to be done:
   * Provide data visualization with Chart.js
   * AJAXify pages where users can add and edit items
   * Enable users to map out walking/driving route by integrating Google Maps API (requires new class for Location)
-  * Push to Heroku
   * Wish List and Got It Lists
