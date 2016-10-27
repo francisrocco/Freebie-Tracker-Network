@@ -11,7 +11,7 @@ Log-in credentials:
 * Rails version 5.0
 * PostgreSQL database
 * Bootstrap.css front-end
-* Current gems: bcrypt, pry, paperclip, rspec-rails, bootstrap-sass, sass-rails, jquery-rails, sqlite3
+* Current gems: bcrypt, pry, paperclip, rspec-rails, bootstrap-sass, sass-rails, jquery-rails, pg, chartjs-ror
 * Rspec testing: to run tests, type in 'rspec' in your command line.
 * To create the database, type in 'rake db:migrate' in your command line.
 * To seed the database, type in 'rake db:seed' in your command line.
