@@ -9,7 +9,7 @@ Log-in credentials:
 
 * Ruby version 2.2.2p95
 * Rails version 5.0
-* ActiveRecord(sqlite3) database
+* PostgreSQL database
 * Bootstrap.css front-end
 * Current gems: bcrypt, pry, paperclip, rspec-rails, bootstrap-sass, sass-rails, jquery-rails, sqlite3
 * Rspec testing: to run tests, type in 'rspec' in your command line.
