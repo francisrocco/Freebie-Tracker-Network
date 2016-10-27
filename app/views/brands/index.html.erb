@@ -3,7 +3,7 @@
 <% items_sorted_by_count = Item.all.sort_by{|item| item.users.count}.reverse.take(10) %>
 
 <% data = {
-  labels: items_sorted_by_count.map{|item| item.name},
+  labels: items_sorted_by_count.map{|item| "#{item.name}, #{item.brand.name}"},
   datasets: [
     {
         label: "Freebies Collected",
