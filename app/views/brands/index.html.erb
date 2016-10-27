@@ -1,7 +1,17 @@
-<h1>All the brands!</h1>
+<h2 align="center">Top 10 Freebies Collected </h2>
+<p align="center">...or which freebies are most popular? </p>
+<% items_sorted_by_count = Item.all.sort_by{|item| item.users.count}.reverse.take(10) %>
 
-<ul>
-  <% @brands.each do |brand| %>
-    <%= brand.name %>
-  <% end %>
-</ul>
+<% data = {
+  labels: items_sorted_by_count.map{|item| item.name},
+  datasets: [
+    {
+        label: "Freebies Collected",
+        backgroundColor: "rgba(220,220,220,0.2)",
+        borderColor: "rgba(220,220,220,1)",
+        data: Item.all.map{|item| item.users.count}.sort! { |x,y| y <=> x }
+    }
+  ]
+} %>
+
+<%= bar_chart data %>
