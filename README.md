@@ -15,9 +15,9 @@ Log-in credentials:
 * Rspec testing: to run tests, type in 'rspec' in your command line.
 * Access the deployed app: https://freebie-tracker-network-1.herokuapp.com/
 * OR to access locally.....
-   *To create the database, type in 'rake db:migrate' in your command line.
-   *To seed the database, type in 'rake db:seed' in your command line.
-   *Runs on localhost:3000
+     * To create the database, type in 'rake db:migrate' in your command line.
+     * To seed the database, type in 'rake db:seed' in your command line.
+     * Runs on localhost:3000
 
 
 
