@@ -11,7 +11,7 @@ Log-in credentials:
 * Rails version 5.0
 * PostgreSQL database
 * Bootstrap.css front-end
-* Current gems: bcrypt, pry, paperclip, rspec-rails, bootstrap-sass, sass-rails, jquery-rails, pg, chartjs-ror
+* Current gems: bcrypt, pry, paperclip, rspec-rails, bootstrap-sass, sass-rails, pg, chartjs-ror
 * Rspec testing: to run tests, type in 'rspec' in your command line.
 * Access the deployed app: https://freebie-tracker-network-1.herokuapp.com/
 * OR to access locally.....
