@@ -7,7 +7,7 @@ Log-in credentials:
  Business user email: me@chipotle.com, password: 1234; 
  Regular user email: clay@gmail.com, password: 1234
 
-* Ruby version 2.2.2p95
+* Ruby version 2.3.1
 * Rails version 5.0
 * PostgreSQL database
 * Bootstrap.css front-end
