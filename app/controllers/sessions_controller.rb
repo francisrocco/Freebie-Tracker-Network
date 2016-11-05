@@ -1,15 +1,15 @@
 class SessionsController < ApplicationController
 
   def new
-    # #binding.pry
-    #  if session[:user_id]
-    #    #binding.pry
-    #    @user = User.find(session[:user_id])
-    #    if @user.brands.length > 0
-    #      redirect_to brand_path(@user.brands.first)
-    #    else redirect_to user_path(User.find(session[:user_id]))
-    #    end
-    #  end
+    #binding.pry
+     if session[:user_id]
+       #binding.pry
+       @user = User.find(session[:user_id])
+       if @user.brands.length > 0
+         redirect_to brand_path(@user.brands.first)
+       else redirect_to user_path(User.find(session[:user_id]))
+       end
+     end
   end
 
   def create
