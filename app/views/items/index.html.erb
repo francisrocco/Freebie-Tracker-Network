@@ -17,11 +17,10 @@
             <p><strong>Number of people who have collected this item: </strong><%=item.users.count %></p>
           </div>
           <div class="card-action">
-            <%= form_tag user_path(User.find(session[:user_id])), method: :get do %>
-            <% if current_user.admin == true %>
-            <%= link_to "Edit this freebie", edit_item_path(item) %>
-            <% elsif current_user.items.include?(item) == false %>
-              <%= button_tag "Add to my freebie collection", name: "item_id", value: item.id %>
+            <%= form_tag user_items_path, method: :create do %>
+            <% if current_user.items.include?(item) == false %>
+            <input type="hidden" name="item_id" value="<%=item.id%>">
+              <%= button_to "Add to my freebie collection", type: "submit" %>
             <% else "You've already collected this freebie!" %>
             <% end %>
             <% end %>

@@ -25,14 +25,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    if session[:user_id]
-      if params[:item_id]
-        item = Item.find(params[:item_id])
-        @user.items << item
-      end
-    else
-      redirect_to root_path
-    end
 
   end
 
@@ -59,7 +51,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :admin, :brand_name, :brand_prestige, :brand_location)
+    params.require(:user).permit(:name, :email, :password, :admin, :brand_name, :brand_prestige, :brand_location, :item_id)
   end
 
 end
