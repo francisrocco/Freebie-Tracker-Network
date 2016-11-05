@@ -1,6 +1,7 @@
 # README
 
-Freebie Tracker Network is currently a work-in-progress. It began as as basic rails app partner project with @francisrocco during our Flatiron Web Development Immersive class. Now that the class is over, I've been building it out independently.
+Freebie Tracker Network is currently a work-in-progress. It began as as basic Rails app partner project with @francisrocco during our Flatiron Web Development Immersive class. Now that the class is over, I've been building it out independently.
+**Current bug: Action to delete items from regular user's item list is messed up because when a user initially claims an item, an instance of User-Item join needs to be created before it can be deleted. 
 
 Log-in credentials:
  
