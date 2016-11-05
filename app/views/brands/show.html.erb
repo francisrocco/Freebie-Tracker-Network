@@ -1,6 +1,8 @@
 
 <h1>Welcome Freebie Giver, <%= @brand.business.name %>. </h1> <br>
 
+<div class="panel panel-default">
+  <div class="panel-body">
 <% if @brand.items.empty? %>
     You haven't logged any freebies yet :( <br>
     Log some freebies!
@@ -51,7 +53,8 @@
 
 <% end %>
 
-
+</div>
+</div>
 
 <br>
 
@@ -64,5 +67,3 @@
  </div>
  <br>
  <%= link_to 'View most popular freebies', brands_path %>
-
- <p align='right'><%= link_to 'Log Out', signout_path %></p>
