@@ -22,8 +22,8 @@
         <% end %>
 
         <li>
-          <% if @current_user == nil%>
-            <%= link_to 'Log Out', signout_path %>
+          <% if current_user != nil%>
+            <%= link_to 'Log Out', signout_path, method: :delete %>
             <% end %>
         </li>
 
