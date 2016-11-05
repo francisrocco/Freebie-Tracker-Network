@@ -43,8 +43,9 @@ Get on out there! Get some freebies! </h4>
     <td> <%= user_item.item.brand.name %> </td>
     <td> <%= image_tag(user_item.item.item_image.url(:small)) %> </td>
     <td>
-      <%= form_tag user_item_path(user_item.id), method: "delete" %>
+      <%= form_tag user_item_path(user_item.id), method: :delete do %>
       <%= submit_tag "X" %>
+      <% end %>
     </td>
   </tr>
     <% end %>
