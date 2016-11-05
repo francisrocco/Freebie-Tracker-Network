@@ -14,9 +14,9 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">Freebie Tracker Network</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <% if @user && @user.brands.length == 0 %>
+        <% if current_user && current_user.brands.length == 0 %>
         <li>
-            <%= "Your status: #{@user.status_level}" %>
+            <%= "Your status: #{current_user.status_level}" %>
         </li>
         <% end %>
         <% if current_user != nil%>
