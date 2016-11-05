@@ -1,11 +1,12 @@
-<h1>Welcome Freebie Getter, <%= @user.name %>. <br>
+<h1>Welcome Freebie Getter, <%= @user.name %>. </h1> <br>
 
-
+<div class="panel panel-default">
+  <div class="panel-body">
 <% if @user.items.empty? %>
-You haven't collected any freebies yet :( <br>
-Get on out there! Get some freebies!
+<h4>You haven't collected any freebies yet :( <br>
+Get on out there! Get some freebies! </h4>
 <% else %>
-<h2>Here's a list of your freebies!</h2>
+<h3>Here's a list of the freebies you've collected:</h3>
 
 <table class="table table-striped">
   <tr>
@@ -50,15 +51,14 @@ Get on out there! Get some freebies!
 </table>
 
 <br>
-<h3>Your status: <%= @user.status_level %> </h3>
-<% end %>
 
+<% end %>
+</div>
+</div>
 
 <br><br>
-      <% if session[:user_id] == params[:id].to_i %>
-      <%= button_to "Get Some Freebies!", items_path, method: :get %>
-      <% end %>
+      <%= link_to "Get More Freebies!", items_path %>
 
 <br>
 
-<p><%= link_to 'Log Out', signout_path %></p>
+<p></p>
