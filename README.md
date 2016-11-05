@@ -2,12 +2,13 @@
 
 Freebie Tracker Network is currently a work-in-progress. It began as as basic Rails app partner project with @francisrocco during our Flatiron Web Development Immersive class. Now that the class is over, I've been building it out independently.
 
-*Current bugs: 1. There is a 302 issue with the logout feature Sessions#controller. When I try to re-login as a different user, it redirects to new, rather than creates a new session.
+*Current bugs: At the moment, I have squashed the log out bug and the delete items from user list bug. Should be functioning normally.
 
 Log-in credentials:
  
  Business user email: me@chipotle.com, password: 1234; 
  Regular user email: clay@gmail.com, password: 1234
+
 
 * Ruby version 2.3.1
 * Rails version 5.0
