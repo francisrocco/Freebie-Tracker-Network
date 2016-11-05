@@ -1,7 +1,9 @@
 # README
 
 Freebie Tracker Network is currently a work-in-progress. It began as as basic Rails app partner project with @francisrocco during our Flatiron Web Development Immersive class. Now that the class is over, I've been building it out independently.
-**Current bug: Action to delete items from regular user's item list is messed up because when a user initially claims an item, an instance of User-Item join needs to be created before it can be deleted. 
+
+*Current bugs: 1. Action to delete items from regular user's item list is messed up because when a user initially claims an item, an instance of User-Item join needs to be created before it can be deleted. 
+2. There is a 302 issue with the logout feature Sessions#controller. When I try to re-login as a different user, it redirects to new, rather than creates a new session.
 
 Log-in credentials:
  
