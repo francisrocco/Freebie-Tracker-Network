@@ -16,12 +16,13 @@
             <p><strong>Gimmick: </strong><%= item.gimmick%></p>
             <p><strong>Number of people who have collected this item: </strong><%=item.users.count %></p>
           </div>
-          <div class="card-action">
+          <div class="card-action freebie-item">
             <%= form_tag user_items_path, method: :create do %>
-            <% if current_user.items.include?(item) == false %>
-            <input type="hidden" name="item_id" value="<%=item.id%>">
-              <%= button_to "Add to my freebie collection", type: "submit" %>
-            <% else "You've already collected this freebie!" %>
+            <% if current_user.items.include?(item) %>
+              <%="You've already collected this freebie!"%>
+            <% else %>
+            <input type="hidden" name="item_id" value="<%=item.id%>" />
+              <%= button_to "Add to my freebie collection", type: "submit"%>
             <% end %>
             <% end %>
           </div>

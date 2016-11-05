@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <div class="col-md-12 text-center vert-align">
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#userModal">
+  <button type="button" id="new-user" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#userModal">
     I am a user.
   </button>
 </div>
@@ -14,7 +14,7 @@
         <h4 class="modal-title" id="myModalLabel">User Sign Up</h4>
       </div>
       <div class="modal-body">
-        <%= form_for(@user) do |f| %>
+        <%= form_for @user, method: :post do |f| %>
           <%= f.label :name %>
           <%= f.text_field :name %>
           <br>
@@ -25,10 +25,7 @@
           <br>
           <%= f.label :password %>
           <%= f.password_field :password %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <input type="submit" value="submit" class="btn btn-primary"></input>
         <% end %>
       </div>
     </div>
