@@ -8,7 +8,7 @@ root 'sessions#new'
 
 post '/signin', to: 'sessions#create'
 
-get '/signout', to: 'sessions#destroy'
+delete '/signout', to: 'sessions#destroy'
 
 delete '/items/:id', to: 'items#destroy'
 end

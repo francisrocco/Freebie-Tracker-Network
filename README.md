@@ -2,25 +2,25 @@
 
 Freebie Tracker Network is currently a work-in-progress. It began as as basic Rails app partner project with @francisrocco during our Flatiron Web Development Immersive class. Now that the class is over, I've been building it out independently.
 
-*Current bugs: 1. Action to delete items from regular user's item list is messed up because when a user initially claims an item, an instance of User-Item join needs to be created before it can be deleted. 
-2. There is a 302 issue with the logout feature Sessions#controller. When I try to re-login as a different user, it redirects to new, rather than creates a new session.
+*Current bugs: Inconsistencies in Capybara and Selenium tests.
 
 Log-in credentials:
- 
- Business user email: me@chipotle.com, password: 1234; 
+
+ Business user email: me@chipotle.com, password: 1234;
  Regular user email: clay@gmail.com, password: 1234
 
 * Ruby version 2.3.1
 * Rails version 5.0
 * PostgreSQL database
 * Bootstrap.css front-end
-* Current gems: bcrypt, pry, paperclip, rspec-rails, bootstrap-sass, sass-rails, pg, chartjs-ror
-* Rspec testing: to run tests, type in 'rspec' in your command line.
+* Current gems: bcrypt, pry, paperclip, rspec-rails, bootstrap-sass, sass-rails, pg, chartjs-ror, capybara, selenium web-driver, database-cleaner
 * Access the deployed app: https://freebie-tracker-network-1.herokuapp.com/
 * OR to access locally.....
-     * To create the database, type in 'rake db:migrate' in your command line.
-     * To seed the database, type in 'rake db:seed' in your command line.
+     * To create the database: $ rake db:migrate
+     * To seed the database: $ rake db:seed
      * Runs on localhost:3000
+     * Rspec testing: $ rspec
+     * Capybara and Selenium testing: need to seed test database $ rake RAILS_ENV=test db:seed
 
 
 
@@ -30,6 +30,7 @@ Log-in credentials:
   * Created Sessions Controller: users can create accounts and sign in/out
   * Created seed file
   * Created Rspec tests for models and session controller
+  * Created Capybara and Selenium tests for integration
   * Edit view pages for users, items, businesses with Bootstrap and Materialize
   * Deployed to Heroku
   * Provide data visualization with Chart.js
