@@ -7,5 +7,4 @@ describe 'home page' do
     page.should have_content('Welcome to Freebie Tracker!')
   end
 end
-
 end

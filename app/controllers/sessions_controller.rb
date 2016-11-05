@@ -13,9 +13,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    #binding.pry
-    user = User.find_by(email: params[:email])
-      if user && user.authenticate(params[:password])
+    binding.pry
+    user = User.find_by(email: session_params[:email])
+      if user && user.authenticate(session_params[:password])
         session[:user_id] = user.id
         #binding.pry
         if user.brands.length > 0
@@ -31,6 +31,12 @@ class SessionsController < ApplicationController
   def destroy
     reset_session
     redirect_to root_path
+  end
+
+  private
+
+  def session_params
+    params.require(:user).permit(:email, :password)
   end
 
 end

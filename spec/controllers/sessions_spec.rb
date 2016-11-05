@@ -21,27 +21,26 @@ RSpec.describe SessionsController, :type => :controller do
       @me = User.create(name: "Alex", email: "me@gmail.com", password: "1234")
     end
     it 'redirects to user page if user authenticates with email and password' do
-      #binding.pry
-      post :create, email: @me.email, password: @me.password
+      post :create, user: {email: @me.email, password: @me.password}
       expect(request.session[:user_id]).to eq(@me.id)
       expect(response).to redirect_to user_path(@me)
     end
 
     it 'does not permit log in if email and password are not correct' do
       @me = User.create(name: "Alex", email: "me@gmail.com", password: "1234")
-      post :create
+      post :create, user: {email: @me.email, password: ""}
+      expect(response).to redirect_to '/'
+    end
+
+    it 'does not permit log in if email is not correct' do
+      @me = User.create(name: "Alex", email: "me@gmail.com", password: "1234")
+      post :create, user: {email: 'blah', password: '1234'}
       expect(response).to redirect_to '/'
     end
 
     it 'does not permit log in if email and password are not correct' do
       @me = User.create(name: "Alex", email: "me@gmail.com", password: "1234")
-      post :create, email: 'blah', password: '1234'
-      expect(response).to redirect_to '/'
-    end
-
-    it 'does not permit log in if email and password are not correct' do
-      @me = User.create(name: "Alex", email: "me@gmail.com", password: "1234")
-      post :create, email: 'alxsanborn@gmail.com', password: '5678'
+      post :create, user: {email: 'alxsanborn@gmail.com', password: '5678'}
       expect(response).to redirect_to '/'
     end
    end
