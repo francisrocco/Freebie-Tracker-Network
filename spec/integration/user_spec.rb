@@ -4,8 +4,8 @@ feature "Capybara: user interface", :js => true do
   before :each do
     visit root_path
     page.find("#sign-in").click
-    fill_in 'user_email', with: "clay@gmail.com"
-    fill_in 'user_password', with: '1234'
+    fill_in "user_email", with: "clay@gmail.com"
+    fill_in "user_password", with: "1234"
     click_button "submit"
   end
 
@@ -14,13 +14,13 @@ feature "Capybara: user interface", :js => true do
     visit items_path
     expect(page).to have_text('All the Freebies!')
 
-    first('.freebie-item').click_button("Add to my freebie collection")
+    click_button "Add Chanel logo keychain to my collection"
     expect(page).to have_text('Chanel logo keychain')
   end
 
   scenario 'user can delete item' do
-    first('.user-freebie').click_button("X")
-    expect(page).to_not have_text('Burrito')
+    click_button "Delete Chanel"
+    expect(page).to_not have_text('Chanel logo keychain')
   end
 
 end

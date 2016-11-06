@@ -1,7 +1,8 @@
+UserItem.destroy_all
 User.destroy_all
 Brand.destroy_all
 Item.destroy_all
-UserItem.destroy_all
+
 
 alex = User.create(name: "Alex", email: "alex@gmail.com", password: "1234", admin: true)
 clay = User.create(name: "Clay", email: "clay@gmail.com", password: "1234")
