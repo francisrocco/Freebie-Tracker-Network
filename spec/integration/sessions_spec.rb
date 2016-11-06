@@ -17,8 +17,8 @@ feature "Capybara: Sessions", :js => true do
   scenario 'user can sign in and out' do
     visit root_path
     page.find("#sign-in").click
-    fill_in "user_email", with: 'clay@gmail.com'
-    fill_in "user_password", with: '1234'
+    fill_in "user_email", with: "clay@gmail.com"
+    fill_in "user_password", with: "1234"
     click_button "submit"
     expect(page).to have_text('Welcome Freebie Getter, Clay.')
 
